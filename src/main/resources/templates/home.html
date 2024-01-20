@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+     body {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+   background-color: #dfe6ee;
+}
+.post-container {
+  margin: 20px 20px 20px 20px;  
+  overflow: auto
+}
+.post-thumb {
+  float: left
+}
+
+
+.post-thumb img{
+  border-radius: 20%;
+}
+
+.post-content {
+  margin-left: 700px;
+  margin-top: 60px
+}
+.post-title {
+  font-weight:bold;
+  font-size: 250%;
+}
+.post-para {
+  font-size: 200%;
+   font-weight:500;
+}
+</style>
+</head>
+</head>
+<body>
+<header id="home">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary sticky-top" style="font-family: 'Poppins', sans-serif;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand text-capitalize" href="#">
+      <img src=" https://cdn.vectorstock.com/i/preview-1x/95/88/sign-symbol-health-logo-hospital-red-cross-vector-35679588.webp " width="40" height="40" alt="" loading="lazy" class="mr-2">
+      Patient Dashboard</a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#home"> <i class="fa fa-home mr-1" aria-hidden="true"></i>Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/userdetails}"><i class="fa fa-hospital-o mr-1" aria-hidden="true"></i>My Appointments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/docdetails}"> <i class="fa fa-medkit mr-1" aria-hidden="true"></i>Doctors</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <div class="post-container">                
+    <div class="post-thumb"><img src="  https://media.istockphoto.com/id/539233621/photo/stethoscope-with-heart.jpg?s=1024x1024&w=is&k=20&c=XabfqRIl3y31ov20wCYhmErrG_xhJiyhpY2Gc6Qarng=" alt ="img1" width= "600" height="450"/></div>
+    <div class="post-content">
+        <h4 class="post-title" th:text="'Welcome....!! '+${email}"></h4>
+        <p class="post-para">We are there for you. If you are feeling unwell, then you need a check-up. Book an appointment with an appropriate doctor here.</p>
+   </div>
+
+</header>
+</body>
+</html>

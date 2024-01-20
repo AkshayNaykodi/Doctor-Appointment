@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Appointment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        html,body {
+	height: 100%;
+  background-color: #dfeee1;
+}
+.ab{
+  margin-left: 10px;
+  margin-right: 20px;
+}
+footer {
+	margin: 40px 0;
+	color: #0b0b0b;
+	text-align: center;
+  text-shadow: 6ch;
+}
+    </style>
+</head>
+<body>
+   <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary sticky-top "style="font-family: 'Poppins', sans-serif;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-capitalize" href="#"><img src="https://cdn.vectorstock.com/i/preview-1x/95/88/sign-symbol-health-logo-hospital-red-cross-vector-35679588.webp " width="40" height="40" alt="logo" loading="lazy" class="mr-2">Doctor's Appointment</a>
+     
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+			  
+           <!--<li class="nav-item">
+          <a class="nav-link" th:href="@{#}"> <i class="fa fa-home mr-1" aria-hidden="true"></i>Home</a>
+        </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{#}"><i class="fa fa-user mr-1" aria-hidden="true"></i>Book Appointment</a>
+            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/}"><i class="fa fa-medkit mr-1" aria-hidden="true"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+   </header> 
+   <div class="ab">
+	   <h4 class="post-title" th:text="'Welcome....!! '+${email}"></h4>
+   <section class="container pt-3">
+    <table class="table table-hover">
+        <thead class="bg-primary">
+          <tr>
+            <th>Patient's Email</th>
+            <th>Appointment Date</th>
+            <th>Cancel Appointment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr valign="top" th:each="app:${appointments}">
+			
+			<td valign="top" th:text="${app.email}"type="text">Email</td>
+			<td valign="top" th:text="${app.date}">Date</td>
+			<form method="POST" th:action="@{/cancel}">
+			<input type="hidden" name="appId" th:value="${app.appId}">
+			<td><button type="submit" value="value" class="link-button">Cancel</button></td>
+			</form>
+			<td>
+</td>
+
+</tr>
+        </tbody>
+      </table>
+   </section>
+   </div>
+   <footer>
+    <p> Project - Hospital Management System</p>
+   </footer>
+
+</body>
+</html>
